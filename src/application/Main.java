@@ -18,6 +18,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			primaryStage.setTitle("Schach");
 			BorderPane root = new BorderPane();
 			GridPane feld = new GridPane();
 			for (int i = 0; i < 8; i++) {
@@ -28,14 +29,13 @@ public class Main extends Application {
 					b.setMaxWidth(100);
 					b.setMaxHeight(100);
 					char id = (char) ('A' + i);
-					String idB = id + String.valueOf(j + 1);
-					System.out.println(idB);
+					String idB = id + String.valueOf(8-j);
 					b.setId(idB);
 					feld.add(b, i, j);
 					b.setOnAction(new EventHandler<ActionEvent>() {
 						@Override
 						public void handle(ActionEvent event) {
-							b.getId();
+							System.out.println(b.getId());
 						}
 					});
 				}
